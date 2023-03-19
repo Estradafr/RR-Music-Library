@@ -2,14 +2,23 @@ import './gallery-styles/detailedStyle.css';
 import './gallery-styles/simpleStyle.css';
 
 import {useState} from 'react';
+import {useParams, Link} from 'react-router-dom';
 
 export function GalleryItem({song}) {
+	const {
+		trackName,
+		artistId,
+		artistName,
+		collectionName,
+		primaryGenreName,
+		collectionId,
+		artworkUrl100,
+	} = song;
+
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const {trackName} = song;
-
 	const detailedStyle = {
-		backgroundImage: `url(${song.artworkUrl100}`,
+		backgroundImage: `url(${artworkUrl100}`,
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'contain',
 	};
@@ -23,8 +32,8 @@ export function GalleryItem({song}) {
 			className="SimpleStyle"
 			onClick={handleClick}
 		>
-			<h3>{song.trackName}</h3>
-			<h4>{song.collectionName}</h4>
+			<h3>{trackName}</h3>
+			<h4>{artistName}</h4>
 		</div>
 	);
 
@@ -34,9 +43,14 @@ export function GalleryItem({song}) {
 			onClick={handleClick}
 			style={detailedStyle}
 		>
-			<h2>{song.trackName}</h2>
-			<h3>{song.collectionName}</h3>
-			<h4>{song.primaryGenreName}</h4>
+			<h2>{trackName}</h2>
+			<h3>
+				<Link to={`/artist/${artistId}`}>{artistName}</Link>
+			</h3>
+			<h3>
+				<Link to={`/album/${collectionId}`}>{collectionName}</Link>
+			</h3>
+			<h4>{primaryGenreName}</h4>
 		</div>
 	);
 

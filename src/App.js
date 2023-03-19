@@ -1,11 +1,12 @@
 import './styles/App.css';
 
 import {Fragment, useEffect, useState} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import {Gallery} from './components/Gallery';
 import {SearchBar} from './components/SearchBar';
 import {ArtistView} from './components/artistView';
 import {AlbumView} from './components/albumView';
+import {Nav} from './components/Nav';
 
 export function App() {
 	let [search, setSearch] = useState('');
@@ -26,6 +27,9 @@ export function App() {
 	return (
 		<div className="App">
 			<BrowserRouter>
+				<Nav />
+				<br />
+				<Link to="/album/:id" />
 				<Routes>
 					<Route
 						path="/"

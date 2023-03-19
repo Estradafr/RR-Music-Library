@@ -1,3 +1,7 @@
+import Form from 'react-bootstrap/Form';
+import {Button} from 'react-bootstrap';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 import {useEffect, useState} from 'react';
 
 export function SearchBar({setSearch}) {
@@ -21,16 +25,34 @@ export function SearchBar({setSearch}) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				value={query}
-				onChange={handleChange}
-			/>
-			<input
-				type="submit"
-				value="Search"
-			/>
-		</form>
+		// 	<form onSubmit={handleSubmit}>
+		// 		<input
+		// type="text"
+		// value={query}
+		// onChange={handleChange}
+		// 		/>
+		// <input
+		// 	type="submit"
+		// 	value="Search"
+		// />
+		// 	</form>
+
+		<div>
+			<Form onSubmit={handleSubmit}>
+				<InputGroup className="mb-3">
+					<Form.Control
+						value={query}
+						onChange={handleChange}
+						placeholder="Search a song!"
+					/>
+					<Button
+						variant="outline-primary"
+						value="search"
+					>
+						Search
+					</Button>
+				</InputGroup>
+			</Form>
+		</div>
 	);
 }
