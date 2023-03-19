@@ -7,6 +7,7 @@ import {SearchBar} from './components/SearchBar';
 import {ArtistView} from './components/artistView';
 import {AlbumView} from './components/albumView';
 import {Nav} from './components/Nav';
+// get our fontawesome imports
 
 export function App() {
 	let [search, setSearch] = useState('');

@@ -10,6 +10,8 @@ import {
 	ListGroupItem,
 } from 'react-bootstrap';
 
+import {ArrowRightCircleFill} from 'react-bootstrap-icons';
+
 export function GalleryDisplay({song}) {
 	const {
 		trackName,
@@ -67,13 +69,10 @@ export function GalleryDisplay({song}) {
 	const listView = (
 		<div onClick={handleClick}>
 			<Container fluid>
-				<ListGroup className="mx-auto mb-1">
-					<ListGroup.Item
-						action
-						variant="dark"
-					>
+				<ListGroup className="mb-2">
+					<ListGroup.Item variant="dark">
 						<Row
-							style={{width: '29.5em', height: '10em', alignItems: 'center'}}
+							style={{width: '92.8em', height: '12em', alignItems: 'center'}}
 						>
 							<Col>
 								<img
@@ -90,6 +89,9 @@ export function GalleryDisplay({song}) {
 								</Link>
 							</Col>
 							<Col>{collectionName}</Col>
+							<Col>
+								<ArrowRightCircleFill className="fs-2" />
+							</Col>
 						</Row>
 					</ListGroup.Item>
 				</ListGroup>
@@ -97,5 +99,5 @@ export function GalleryDisplay({song}) {
 		</div>
 	);
 
-	return isExpanded ? gridView : listView;
+	return isExpanded ? listView : gridView;
 }
