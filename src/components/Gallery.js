@@ -1,5 +1,5 @@
 import {useState} from 'react';
-
+import {GalleryDisplay} from './GalleryDisplay';
 import {GalleryItem} from './GalleryItem';
 
 export function Gallery({data}) {
@@ -8,7 +8,7 @@ export function Gallery({data}) {
 	return (
 		<div className="gallery">
 			{songs.map((song) => (
-				<GalleryItem
+				<GalleryDisplay
 					song={song}
 					key={song.trackId}
 				/>
