@@ -1,23 +1,18 @@
-import {useEffect, useState} from 'react';
+import {useContext, useState} from 'react';
+import {SearchContext} from '../context/searchContext';
 
-export function SearchBar({setSearch}) {
+export function SearchBar(props) {
 	const [query, setQuery] = useState('');
 
-	const handleChange = (e) => {
-		setQuery(e.target.value);
-	};
+	const {ref, fetchData} = useContext(SearchContext);
 
-	/* 
-    To perform ther search as we type
-    useEffect(()=>{
-        setSearch(query)
-    }, [query]) 
-    
-    */
+	const handleChange = (e) => {
+		setQuery(ref.current.value);
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setSearch(query);
+		fetchData();
 	};
 
 	return (
@@ -26,11 +21,9 @@ export function SearchBar({setSearch}) {
 				type="text"
 				value={query}
 				onChange={handleChange}
+				ref={ref}
 			/>
-			<input
-				type="submit"
-				value="Search"
-			/>
+			<input type="submit" />
 		</form>
 	);
 }
