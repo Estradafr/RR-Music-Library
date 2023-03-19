@@ -45,10 +45,20 @@ export function GalleryItem({song}) {
 		>
 			<h2>{trackName}</h2>
 			<h3>
-				<Link to={`/artist/${artistId}`}>{artistName}</Link>
+				<Link
+					to={`/artist/${artistId}`}
+					style={{textDecoration: 'none'}}
+				>
+					{artistName}
+				</Link>
 			</h3>
 			<h3>
-				<Link to={`/album/${collectionId}`}>{collectionName}</Link>
+				<Link
+					to={`/album/${collectionId}`}
+					style={{textDecoration: 'none'}}
+				>
+					{collectionName}
+				</Link>
 			</h3>
 			<h4>{primaryGenreName}</h4>
 		</div>

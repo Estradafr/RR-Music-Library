@@ -10,7 +10,7 @@ import {Nav} from './components/Nav';
 
 export function App() {
 	let [search, setSearch] = useState('');
-	let [message, setMessage] = useState('Search music!');
+	let [message, setMessage] = useState('');
 	let [data, setData] = useState([]);
 
 	useEffect(() => {

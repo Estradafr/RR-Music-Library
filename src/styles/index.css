@@ -22,5 +22,5 @@ code {
 .gallery {
   display: flex;
   flex-flow: row wrap;
-  width: 80%
+  width: 80%;
 }
