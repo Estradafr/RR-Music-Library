@@ -70,27 +70,33 @@ export function GalleryDisplay({song}) {
 		<div onClick={handleClick}>
 			<Container fluid>
 				<ListGroup className="mb-2">
-					<ListGroup.Item variant="dark">
-						<Row
-							style={{width: '92.8em', height: '12em', alignItems: 'center'}}
-						>
+					<ListGroup.Item
+						style={{backgroundColor: 'rgb(33,37,41)', color: 'white'}}
+					>
+						<Row style={{width: '68rem', height: '12em', alignItems: 'center'}}>
 							<Col>
-								<img
-									src={`${artworkUrl100}`}
-									alt={trackName}
-								/>
+								<Link
+									to={`/../album/${artistId}`}
+									style={{textDecoration: 'none'}}
+								>
+									<img
+										src={`${artworkUrl100}`}
+										alt={trackName}
+										style={{width: '190px'}}
+									/>
+								</Link>
 							</Col>
+							<Col>
+								<h5>{trackName}</h5>
+							</Col>
+							<Col>{primaryGenreName}</Col>
 							<Col>
 								<Link
 									to={`/../artist/${artistId}`}
 									style={{textDecoration: 'none'}}
 								>
-									<h5>{trackName}</h5>
+									<ArrowRightCircleFill className="fs-2" />
 								</Link>
-							</Col>
-							<Col>{collectionName}</Col>
-							<Col>
-								<ArrowRightCircleFill className="fs-2" />
 							</Col>
 						</Row>
 					</ListGroup.Item>

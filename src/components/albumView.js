@@ -23,33 +23,42 @@ export function AlbumView() {
 
 	return (
 		<div>
-			<h1>{albumData.collectionName}</h1>
+			<h1>
+				<img
+					src={`${albumData.artworkUrl60}`}
+					alt={`${albumData.artworkUrl60}`}
+					style={{width: '150px'}}
+				/>
+			</h1>
+			<h2>{albumData.collectionName}</h2>
 			<Link
 				to={`/../artist/${albumData.artistId}`}
 				style={{textDecoration: 'none'}}
 			>
 				<h2>{albumData.artistName}</h2>
 			</Link>
-			<h2>Genre: {albumData.primaryGenreName}</h2>
+			<h4>Genre: {albumData.primaryGenreName}</h4>
 			<Container fluid>
 				{songs.map((song) => {
 					return (
 						<ListGroup
 							horizontal
 							className="mx-auto mb-1 "
-
 							// variant="flush"
 						>
-							<ListGroup.Item variant="dark">
-								<Row style={{width: '500px', alignItems: 'center'}}>
-									<Col>
-										<img
-											src={`${song.artworkUrl60}`}
-											alt={`${song.collectionName}`}
-										/>
-									</Col>
-									<Col> {song.trackName}</Col>
+							<ListGroup.Item
+								style={{backgroundColor: 'rgb(33,37,41)', color: 'white'}}
+							>
+								<Row
+									style={{
+										width: '50rem',
+										height: '6.5em',
+										alignItems: 'center',
+									}}
+								>
 									<Col>{song.trackNumber}</Col>
+									<Col>{song.trackName}</Col>
+									<Col>$ {song.trackPrice}</Col>
 								</Row>
 								{/* <img
 									src={`${song.artworkUrl60}`}

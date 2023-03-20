@@ -24,8 +24,8 @@ export function ArtistView() {
 	return (
 		<div>
 			<h1>{artistData.artistName}</h1>
-			<h2>Genre: {artistData.primaryGenreName}</h2>
-			<Container>
+			<h3>Genre: {artistData.primaryGenreName} </h3>
+			<Container fluid>
 				<ListGroup
 					className="mx-auto"
 					// variant="flush"
@@ -33,8 +33,13 @@ export function ArtistView() {
 					{albums.map((album) => {
 						return (
 							<ListGroup.Item
-								style={{marginBottom: '.3rem'}}
-								variant="dark"
+								style={{
+									marginBottom: '.3rem',
+									width: '50rem',
+									height: '3rem',
+									backgroundColor: 'rgb(33,37,41)',
+									color: 'white',
+								}}
 							>
 								<Link
 									to={`/album/${album.collectionId}/`}

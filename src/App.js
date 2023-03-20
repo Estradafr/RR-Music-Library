@@ -7,7 +7,6 @@ import {SearchBar} from './components/SearchBar';
 import {ArtistView} from './components/artistView';
 import {AlbumView} from './components/albumView';
 import {Nav} from './components/Nav';
-// get our fontawesome imports
 
 export function App() {
 	let [search, setSearch] = useState('');
@@ -16,12 +15,16 @@ export function App() {
 
 	useEffect(() => {
 		fetch(`https://itunes.apple.com/search?term=${search}`)
+			// How can i capitalize the first letter in their search?
 			.then((response) => response.json())
 			.then(({resultCount, results}) => {
-				const successMessage = `Successfully fetched ${resultCount} result(s)!`;
+				const successMessage = `You searched for ${search}`;
 				const errorMessage = 'Not found';
 				setMessage(resultCount ? successMessage : errorMessage);
 				setData(results);
+				console.log(results);
+				// How can I return just the explicit or clean?
+				// collectionExplicitness: "explicit"
 			});
 	}, [search]);
 
